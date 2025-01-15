@@ -2,6 +2,17 @@
 
 A fully-featured e-commerce platform built with React, TypeScript, and Supabase. This project was created automatically using AI and took approximately 1 hour to generate a production-ready application.
 
+## 🌐 Demo URLs
+
+- **Customer Portal**: `/`
+- **Admin Portal**: `/admin`
+- **Login URL**: Click "Sign In" button in the top navigation
+
+### Demo Credentials
+- **Admin Login**:
+  - Email: `admin@example.com`
+  - Password: `admin`
+
 ## 🚀 Features
 
 ### Customer Features
@@ -51,8 +62,8 @@ A fully-featured e-commerce platform built with React, TypeScript, and Supabase.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/modern-ecommerce.git
-cd modern-ecommerce
+git clone https://github.com/turzo333/ai-onlineshop-autopilot.git
+cd ai-onlineshop-autopilot
 ```
 
 2. Install dependencies:
@@ -71,12 +82,39 @@ VITE_SUPABASE_URL=your_supabase_project_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-5. Run the database migrations:
+### Database Migration Process
+
+1. Install Supabase CLI:
 ```bash
-npx supabase migration up
+npm install -g supabase
 ```
 
-6. Start the development server:
+2. Link your project:
+```bash
+supabase link --project-ref your-project-ref
+```
+
+3. Run migrations in order:
+```bash
+supabase migration up
+```
+
+This will execute all migrations in the following order:
+1. Initial schema setup (tables, relationships)
+2. Product and category data
+3. Order management system
+4. Review system
+5. Wishlist functionality
+6. Admin user system
+7. Store settings
+8. Security policies
+
+4. Verify admin user:
+- The migration automatically creates an admin user
+- Use the demo credentials to log in
+- You can change the password after first login
+
+5. Start the development server:
 ```bash
 npm run dev
 ```
@@ -87,9 +125,14 @@ npm run dev
 src/
 ├── components/        # Reusable UI components
 ├── pages/            # Page components
+│   ├── admin/        # Admin panel pages
+│   └── ...          # Customer-facing pages
 ├── store/            # Zustand store configurations
 ├── lib/              # Utilities and types
 └── main.tsx          # Application entry point
+
+supabase/
+└── migrations/       # Database migrations
 ```
 
 ## 🔐 Authentication
@@ -125,6 +168,12 @@ npm run build
 ```
 
 2. Deploy to your preferred hosting platform (e.g., Netlify, Vercel)
+
+3. Set up environment variables on your hosting platform:
+```
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
 ## 🤖 AI Generation
 
